@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: crud-usuarios-backend
+    env: java
+    buildCommand: cd backend && mvn clean package -Dspring.profiles.active=prod
+    startCommand: cd backend && java -jar target/*.jar
+    envVars:
+      - fromDatabase:
+          name: crud-usuarios-db
+          property: connectionString

@@ -8,11 +8,14 @@ spring:
       minimum-idle: 1
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: never  # ← AGREGAR ESTO
 
 server:
   port: ${PORT:8080}
